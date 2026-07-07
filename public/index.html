@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <title>kibble.io</title>
+</head>
+<body>
+    <div class="flex">
+        <div class="top"><h1>Kibble.io</h1>
+        <img src="assets/kibble.jpg">
+        </div>
+    </div>
+    <h2>The shittier skribble.io</h2>
+    <div class="log-in ">
+        <input type="text" id="name" name="name" placeholder="Enter your name">
+        <select name="language" id="languge">
+            <option value="English">English</option>
+            <option value="English">English </option>
+            <option value="English">English</option>
+            <option value="English">All English</option>
+            <option value="English">England</option>
+        </select>
+        <div class="character-picker">
+            <div class="chars">
+                <button>
+                    <img class="arrow left-arrow" src="assets/left-btn.jpg">
+                <img src="assets/dog1.jpg" id="playable">
+                <img class="arrow right-arrow" src="assets/right-btn.jpg">
+            </div>
+            <div id="dice">
+                <img src="assets/dice.png">
+                <div id="hoverModal" class="modal">
+                    <div class="modal-content">
+                        <p>Randomize your avater!</p>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="play">
+            <a href="game.html">
+                <h1 id="play">Play!</h1>
+            </a>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="desc">
+            <h2>? About</h2>
+            <br><p><strong>kibble.io</strong> is a free drawing and guessing pictionary game.</p>
+            <br><p>It's also a satire of <a href="skribbl.io">skribbl.io</a>. Every round, you and Kibble take turns drawing and guessing eacher other's words to gain points.</p>
+            <br><p>The 'person' with the most points will be crowned winner.</p>
+            <p>Have fun!</p>
+        </div>
+        <div class="desc">
+            <h2>News</h2>
+            <p>Not much going on.</p>
+            <p>Go support skribbl.io!</p>
+        </div>
+        <div class="desc">
+            <h2>How to play</h2>
+            <span id="tutorial"><img src=""></span>
+            <!-- js here -->
+        </div>
+    </div>
+    <footer>
+        <p>Kibble.io 2026</p>
+        <p>Come check out my <a href="https://github.com/fanglin0">Github</a></p>
+    </footer>
+    
+</body>
+</html>
