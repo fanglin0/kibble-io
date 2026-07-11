@@ -275,36 +275,53 @@ if (canvas) {
         canvas.height
       );
     });
+    socket.on(
+      "drawing",
+      (point)=> {
+        ctx.lineTo(
+          point.x,
+          point.y
+        );
+        ctx.stroke();
+      }
+    );
+    socket.on(
+      "prediction",
+      (word)=>{
+        document.getElementById("wordDash").innerHTML = "AI thinks: " + word;
+      }
+    )
   }
+}
 
   // =========================
   // PLACEHOLDER AI
   // =========================
 
-  const guesses = [
-    "dog 🐶 (92%)",
-    "cat 🐱 (81%)",
-    "house 🏠 (78%)",
-    "tree 🌳 (84%)",
-    "car 🚗 (73%)",
-    "elephant 🐘 (88%)",
-    "pizza 🍕 (69%)",
-    "fish 🐟 (76%)"
-  ];
+//   const guesses = [
+//     "dog 🐶 (92%)",
+//     "cat 🐱 (81%)",
+//     "house 🏠 (78%)",
+//     "tree 🌳 (84%)",
+//     "car 🚗 (73%)",
+//     "elephant 🐘 (88%)",
+//     "pizza 🍕 (69%)",
+//     "fish 🐟 (76%)"
+//   ];
 
-  setInterval(() => {
-    const randomGuess =
-      guesses[
-        Math.floor(
-          Math.random() *
-            guesses.length
-        )
-      ];
+//   setInterval(() => {
+//     const randomGuess =
+//       guesses[
+//         Math.floor(
+//           Math.random() *
+//             guesses.length
+//         )
+//       ];
 
-    if (wordDash) {
-      wordDash.textContent =
-        "AI thinks: " +
-        randomGuess;
-    }
-  }, 3000);
-}
+//     if (wordDash) {
+//       wordDash.textContent =
+//         "AI thinks: " +
+//         randomGuess;
+//     }
+//   }, 3000);
+// }
