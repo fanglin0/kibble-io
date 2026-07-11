@@ -325,3 +325,26 @@ if (canvas) {
 //     }
 //   }, 3000);
 // }
+
+const python = spawn(
+  "python",
+  [
+    "predictor.py",
+    JSON.stringify(image)
+  ]
+);
+
+python.stdout.on("data", (data)=> {
+  const prediction = JSON.parse(data);
+
+  socket.emit(
+    "prediction",
+    prediction
+  );
+});
+
+socket.on("prediction",(pred=>{
+  wordDash.textContent = 
+  `Ai thinks: ${pred.word}
+  (${Math.round(pred.confidence*100)}%)`;
+}));

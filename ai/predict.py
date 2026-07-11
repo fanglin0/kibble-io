@@ -4,7 +4,7 @@ import base64
 import io
 import numpy as np
 from PIL import Image
-from tensorflow import keras
+import keras
 
 classes = [
     "cat",
@@ -25,7 +25,7 @@ image = Image.open(io.BytesIO(image_bytes))
 
 image = image.convert("L")
 image = image.resize((28,28))
-img = img.astype("float32")/255.0
+img = image.astype("float32")/255.0
 img = img.reshape(1,28,28,1)
 pred = model.predict(img,verbose=0)
 idx = np.argmax(pred)
