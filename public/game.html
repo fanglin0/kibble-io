@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js" defer></script>
     <title>Kibble.io</title>
 </head>
 <body>
@@ -12,7 +13,7 @@
     <ul class="header">
         <div class="timer">
             <li>
-                <img src="assets/timer.jpg">
+                <img src="assets/timer.png">
                 <p id="time">time</p>
             </li>
         </div>
@@ -26,7 +27,7 @@
         <div>
             <p>GUESS THIS</p>
             <span id="wordDash">Word Length</span>
-            <span id="wordLength">
+            <span id="wordLength"></span>
         </div>
     </ul>
     <ul class="leaderboard">
@@ -50,8 +51,8 @@
             <input id="lineWidth" name="lineWidth" type="number" value="5">
             <button id="clear">Clear</button>
         </div>
-        <div id="drawing-board">
-            <canvas id="drawing-board"></canvas>
+        <div class="canvas-container">
+            <canvas id="canvas"></canvas>
         </div>
     </div>
     <div class="chat">
@@ -67,3 +68,5 @@
     
 </body>
 </html>
+
+TESTESTESTESTESTESTESTESTESTE HELP

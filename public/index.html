@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <title>kibble.io</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
     <h2>The shittier skribble.io</h2>
     <div class="log-in ">
         <input type="text" id="name" name="name" placeholder="Enter your name">
-        <select name="language" id="languge">
+        <select name="language" id="language">
             <option value="English">English</option>
             <option value="English">English </option>
             <option value="English">English</option>
@@ -25,10 +25,18 @@
         </select>
         <div class="character-picker">
             <div class="chars">
-                <button>
-                    <img class="arrow left-arrow" src="assets/left-btn.jpg">
-                <img src="assets/dog1.jpg" id="playable">
-                <img class="arrow right-arrow" src="assets/right-btn.jpg">
+                <button id="left">
+                <img src="assets/left-btn.jpg">
+                </button>
+
+
+                <img src="assets/dog1.jpg"
+                id="playable">
+
+
+                <button id="right">
+                <img src="assets/right-btn.jpg">
+                </button>
             </div>
             <div id="dice">
                 <img src="assets/dice.png">
@@ -49,7 +57,7 @@
         <div class="desc">
             <h2>? About</h2>
             <br><p><strong>kibble.io</strong> is a free drawing and guessing pictionary game.</p>
-            <br><p>It's also a satire of <a href="skribbl.io">skribbl.io</a>. Every round, you and Kibble take turns drawing and guessing eacher other's words to gain points.</p>
+            <br><p>It's also a satire of <a href="https://skribbl.io">skribbl.io</a>. Every round, you and Kibble take turns drawing and guessing eacher other's words to gain points.</p>
             <br><p>The 'person' with the most points will be crowned winner.</p>
             <p>Have fun!</p>
         </div>

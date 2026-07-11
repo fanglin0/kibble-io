@@ -1,137 +1,490 @@
-body{
-    background-color:rgb(61, 61, 181);
-    color: rgb(60, 25, 2);
+/* =========================
+   GLOBAL RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(
+        135deg,
+        #3d3db5,
+        #857daf
+    );
+    color: #333;
     font-family: Arial, Helvetica, sans-serif;
-    margin:0;
-    color:#333;
-
+    margin: 0;
+    min-height: 100vh;
 }
+
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   HEADER / LOGO
+========================= */
+
 .flex {
-    justify-items:center;
-    display:flex;
-    flex-direction:column;
-    background-color:rgb(133, 125, 175);
-    margin:20px;
-    padding:20px;
-    width:50%;
-    height:30%;
-}
-
-h2 {
-    text-align:center;
-    font-size:10px;
-}
-.top, .log-in, .bottom{
-    text-align:center;
-    background-color:#ffffff;
-    border-radius:12px;
-    box-shadow:0 4px 0 rgba(0,0,0,0.2);
-}
-
-.top{
-    justify-content:center;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    margin-top:40px;
-    padding:20px;
-    width:420px;
-}
-h2 {
-    font-size:20px;
+    padding: 30px 15px;
 }
 
-img {
-    height:40px;
+
+.top {
+    background:white;
+    width:min(90%,450px);
+    text-align:center;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.25);
+}
+
+
+.top img {
+    height:80px;
     width:auto;
 }
 
-.log-in {
-    display:flex;
-    flex-direction: column;
-    margin:10px;
-    background-color: darkblue;
-    width:400px;
-    align-items:center;
-    justify-content: center;
-    padding:10px;
-}
-/* .label {
-    
-} */
-
-.arrow .dice{
-    height:30px;
-    transition:filter 0.2s ease;
-    cursor:pointer;
-}
-.arrow:hover .dice:hover{
-    filter:brightness(0.7);
-}
-
-.dice {
-    position:fixed;
-    justify-content: flex-end;
-}
-
-.modal {
-    display:none;
-    position:fixed;
-}
-.bottom {
-    flex-direction:column;
-    flex:1 0 auto;
-    flex-wrap:wrap;
-    flex-basis:33%;
-}
-
-.desc {
-    flex-direction:row;
-    width:28%;
-    font-size:10px;
-}
-
-.desc h2 {
-    font-weight:bold;
-    font-size:30px;
-}
 
 h1 {
-    background: #7F7FD5;
-    background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
-    background:linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+    margin:10px;
+    font-size:3rem;
+
+    background:
+    linear-gradient(
+        90deg,
+        #91eae4,
+        #86a8e7,
+        #7f7fd5
+    );
+
     background-clip:text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color:transparent;
+    -webkit-background-clip:text;
+    color:transparent;
 }
+
+
+h2 {
+    text-align:center;
+    font-size:1.2rem;
+}
+
+
+/* =========================
+   LOGIN PAGE
+========================= */
+
+
+.log-in {
+
+    width:min(90%,420px);
+
+    margin:
+    20px auto;
+
+    padding:25px;
+
+    background:#ffffff;
+
+    border-radius:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:15px;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.25);
+}
+
+
+input,
+select {
+
+    width:90%;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    border:
+    2px solid #ddd;
+
+    font-size:1rem;
+
+}
+
+
+/* =========================
+   CHARACTER PICKER
+========================= */
+
+
+.character-picker {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+
+.character-picker img {
+
+    height:70px;
+
+    width:auto;
+
+}
+
+
+.arrow {
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+
+.arrow:hover {
+
+    transform:scale(1.1);
+
+}
+
+
+
+/* =========================
+   PLAY BUTTON
+========================= */
+
+
+.play {
+
+    margin-top:20px;
+
+}
+
+
+#play {
+
+    background:#7f7fd5;
+
+    color:white;
+
+    padding:15px 50px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+
+#play:hover {
+
+    transform:scale(1.05);
+
+    background:#6565c9;
+
+}
+
+
+
+/* =========================
+   HOME PAGE CONTENT
+========================= */
+
+
+.bottom {
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:20px;
+
+    padding:30px;
+
+}
+
+
+.desc {
+
+    background:white;
+
+    width:min(300px,90%);
+
+    padding:20px;
+
+    border-radius:15px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.2);
+
+}
+
+
+.desc h2 {
+
+    font-size:1.5rem;
+
+}
+
+
+/* =========================
+   GAME PAGE
+========================= */
+
+
+.header {
+
+    list-style:none;
+
+    margin:0;
+
+    padding:20px;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    background:white;
+
+}
+
+
+.timer img {
+
+    height:35px;
+
+}
+
+
+.leaderboard {
+
+    list-style:none;
+
+    background:white;
+
+    width:200px;
+
+    margin:20px;
+
+    padding:15px;
+
+    border-radius:15px;
+
+}
+
+
+
+/* =========================
+   DRAWING AREA
+========================= */
+
 
 .playableModal {
-    height:80%;
+
     display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    gap:20px;
+
+    padding:20px;
+
 }
+
 
 .drawTools {
+
     display:flex;
+
     flex-direction:column;
-    padding:5px;
-    width:70px;
-    background-color:#202020;
+
+    gap:10px;
+
+    background:#202020;
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    width:150px;
+
 }
 
-.drawTools * {
-    margin-bottom:6px;
-}
-
-.drawTools label {
-    font-size:12px;
-}
 
 .drawTools input {
-    width:80%;
+
+    width:100%;
+
 }
 
-.drawTools button {
-    background-color:#1565c0;
+
+button {
+
+    cursor:pointer;
+
+    padding:10px;
+
     border:none;
-    border-radius:4px;
-    color:white;
-    padding:2px;
+
+    border-radius:10px;
+
+}
+
+
+
+/* CANVAS */
+
+
+#canvas {
+
+    background:white;
+
+    border-radius:15px;
+
+    width:min(80vw,700px);
+
+    height:min(60vh,500px);
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.3);
+
+}
+
+
+
+/* =========================
+   CHAT
+========================= */
+
+
+.chat {
+
+    background:white;
+
+    width:min(90%,700px);
+
+    margin:
+    20px auto;
+
+    min-height:100px;
+
+    border-radius:15px;
+
+    padding:15px;
+
+}
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+
+footer {
+
+    background:white;
+
+    text-align:center;
+
+    padding:15px;
+
+    margin-top:30px;
+
+}
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+
+@media(max-width:700px){
+
+
+    h1{
+        font-size:2rem;
+    }
+
+
+    .playableModal{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+
+    .drawTools{
+
+        width:90%;
+
+        flex-direction:row;
+
+        justify-content:center;
+
+        flex-wrap:wrap;
+
+    }
+
+
+    #canvas{
+
+        width:95vw;
+
+        height:50vh;
+
+    }
+
+
+    .header{
+
+        flex-direction:column;
+
+        gap:10px;
+
+    }
+
+
 }
