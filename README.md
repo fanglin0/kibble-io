@@ -1,4 +1,5 @@
 # Kibble.io
+
 ## What this project is
 
 Inspired by the beloved <a href="https://skribbl.io">Skribbl.io</a>, I built a copycat website that resembles Skribbl.io, but with a play on dogs and kibble (ahaha, get it). It's still a multiplayer drawing guessing game, using a multiplayer server and canvas updates with Node.js. There's also an AI guesser with a TensorFlow model trained off the <a href="https://console.cloud.google.com/storage/browser/quickdraw_dataset/full/numpy_bitmap;tab=objects?pli=1&prefix=&forceOnObjectsSortingFiltering=false">Google Quick Draw API Data</a>. I took a small subsection of the dataset to train my model with prediction percentages.
@@ -7,8 +8,8 @@ I spent ~12 hrs (from node-and-express lapses) to learn node.JS, and used my kno
 
 **NOTE TO REVIEWERS:** I want to apologize in advance to reviewers for my lapses. There are some parts where I was texting my friends, etc., and not coding. I'm aware of them, but I am unable to cut them out with the new Lapse version (which removed cutting) or unsync them from my project. I totally understand if you have to cut hours! I'm just trying to pay back my 19 hours of debt :')
 
-<video src="public/assets/demo-video.mov">
-
+<video src="public/assets/demo-video.mov" controls></video>
+If the video inline isn't working check out my video demo <a href="https://youtu.be/ORvAcgnzqIQ">here</a>.
 <img src="public/assets/demo1.png">
 <img src="public/assets/demo3.png">
 <img src="public/assets/demo2.png">
@@ -54,8 +55,10 @@ Finally, run node sever by running:
 The app should be available at 
 `http:localhost:3000`
 
+---
 ## Why I made this project
 Practicing node and tensorflow while learning something new
+
 ---
 ## How I made this project
 
