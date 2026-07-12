@@ -56,7 +56,7 @@ if (dice && modal) {
 // GAME.HTML
 // =========================
 
-const canvas = document.getElementById("canvas");
+const canvas = document.getElementById("drawing-board");
 
 if (canvas) {
   const ctx = canvas.getContext("2d");
@@ -79,12 +79,12 @@ if (canvas) {
   // -------------------------
 
   const word = "elephant";
-  const wordDash = document.getElementById("wordDash");
+  const wordDash = document.getElementById("ai-guess");
 
-  if (wordDash) {
-    wordDash.textContent =
-      "_ ".repeat(word.length);
-  }
+  // if (wordDash) {
+  //   wordDash.textContent =
+  //     "_ ".repeat(word.length);
+  // }
 
   // =========================
   // DRAWING
@@ -287,10 +287,45 @@ if (canvas) {
     );
     socket.on(
       "prediction",
-      (word)=>{
-        document.getElementById("wordDash").innerHTML = "AI thinks: " + word;
+      (data)=>{
+        const aiGuessEl = document.getElementById("aiGuess");
+
+        if (aiGuessEl) {
+          const pct = Math.round((data.confidence || 0) * 100);
+          aiGuessEl.textContent = `AI thinks: ${data.word} (${pct}%)`;
+        }
       }
     )
+  }
+
+  // =========================
+  // AI GUESS CAPTURE
+  // =========================
+
+  // Track whether anything has been drawn since the last clear, so we
+  // don't spam the server (and spawn python processes) guessing a
+  // blank canvas every 2 seconds before the user starts drawing.
+  let hasDrawnSinceClear = false;
+
+  canvas.addEventListener("mousedown", () => {
+    hasDrawnSinceClear = true;
+  });
+
+  if (clearButton) {
+    clearButton.addEventListener("click", () => {
+      hasDrawnSinceClear = false;
+    });
+  }
+
+  if (socket) {
+    setInterval(() => {
+      if (!hasDrawnSinceClear) {
+        return;
+      }
+
+      const dataUrl = canvas.toDataURL("image/png");
+      socket.emit("guess-request", dataUrl);
+    }, 2000);
   }
 }
 
@@ -298,53 +333,76 @@ if (canvas) {
   // PLACEHOLDER AI
   // =========================
 
-//   const guesses = [
-//     "dog 🐶 (92%)",
-//     "cat 🐱 (81%)",
-//     "house 🏠 (78%)",
-//     "tree 🌳 (84%)",
-//     "car 🚗 (73%)",
-//     "elephant 🐘 (88%)",
-//     "pizza 🍕 (69%)",
-//     "fish 🐟 (76%)"
-//   ];
+const guesses = [
+  "dog 🐶 (92%)",
+  "cat 🐱 (81%)",
+  "house 🏠 (78%)",
+  "tree 🌳 (84%)",
+  "car 🚗 (73%)",
+  "elephant 🐘 (88%)",
+  "pizza 🍕 (69%)",
+  "fish 🐟 (76%)"
+];
 
-//   setInterval(() => {
-//     const randomGuess =
-//       guesses[
-//         Math.floor(
-//           Math.random() *
-//             guesses.length
-//         )
-//       ];
+setInterval(() => {
+  const randomGuess =
+    guesses[
+      Math.floor(
+        Math.random() *
+          guesses.length
+      )
+    ];
 
-//     if (wordDash) {
-//       wordDash.textContent =
-//         "AI thinks: " +
-//         randomGuess;
-//     }
-//   }, 3000);
-// }
+  if (wordDash) {
+    wordDash.textContent =
+      "AI thinks: " +
+      randomGuess;
+  }
+}, 3000);
 
-const python = spawn(
-  "python",
-  [
-    "predictor.py",
-    JSON.stringify(image)
-  ]
-);
 
-python.stdout.on("data", (data)=> {
-  const prediction = JSON.parse(data);
 
-  socket.emit(
-    "prediction",
-    prediction
-  );
-});
+// const python = spawn(
+//   "python",
+//   [
+//     "predictor.py",
+//     JSON.stringify(image)
+//   ]
+// );
 
-socket.on("prediction",(pred=>{
-  wordDash.textContent = 
-  `Ai thinks: ${pred.word}
-  (${Math.round(pred.confidence*100)}%)`;
-}));
+// python.stdout.on("data", (data)=> {
+//   const prediction = JSON.parse(data);
+
+//   socket.emit(
+//     "prediction",
+//     prediction
+//   );
+// });
+
+let seconds = 80;
+
+const timer =
+document.getElementById("time");
+
+setInterval(() => {
+
+    if (seconds <= 0)
+        return;
+
+    seconds--;
+
+    timer.textContent =
+        seconds;
+
+}, 1000);
+
+let currentRound = 1;
+let totalRounds = 3;
+
+document.getElementById(
+    "currentRound"
+).textContent = currentRound;
+
+document.getElementById(
+    "totalRound"
+).textContent = totalRounds;

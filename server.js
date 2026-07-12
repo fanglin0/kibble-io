@@ -48,7 +48,7 @@ io.on("connection", (socket)=> {
         spawn(
             "python",
             [
-                "predictor.py",
+                "ai/predictor.py",
                 JSON.stringify(drawing)
             ]
         );
@@ -65,7 +65,7 @@ io.on("connection", (socket)=> {
 });
 
 server.listen(
-    3001,
+    300,
     ()=>{
         console.log(
             "server running http://localhost:3000"

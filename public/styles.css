@@ -7,21 +7,12 @@
 }
 
 body {
-    background: linear-gradient(
-        135deg,
-        #3d3db5,
-        #857daf
-    );
-    color: #333;
-    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     min-height: 100vh;
+    background: linear-gradient(160deg, #6a63d1, #8b85c9);
+    color: #2b2b2b;
+    font-family: "Trebuchet MS", "Segoe UI", Arial, Helvetica, sans-serif;
 }
-
-
-/* =========================
-   LINKS
-========================= */
 
 a {
     color: inherit;
@@ -32,459 +23,482 @@ a:hover {
     text-decoration: underline;
 }
 
+button {
+    cursor: pointer;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
 
 /* =========================
-   HEADER / LOGO
+   HOME PAGE (unchanged from before)
 ========================= */
 
 .flex {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 30px 15px;
+    padding: 30px 15px 10px;
 }
-
 
 .top {
-    background:white;
-    width:min(90%,450px);
-    text-align:center;
-    border-radius:20px;
-    padding:25px;
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.25);
+    background: #ffffff;
+    width: min(90%, 450px);
+    text-align: center;
+    border-radius: 16px;
+    padding: 20px 25px;
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.12);
 }
-
 
 .top img {
-    height:80px;
-    width:auto;
+    height: 70px;
+    width: auto;
 }
-
-
-h1 {
-    margin:10px;
-    font-size:3rem;
-
-    background:
-    linear-gradient(
-        90deg,
-        #91eae4,
-        #86a8e7,
-        #7f7fd5
-    );
-
-    background-clip:text;
-    -webkit-background-clip:text;
-    color:transparent;
-}
-
 
 h2 {
-    text-align:center;
-    font-size:1.2rem;
+    text-align: center;
+    font-size: 1.05rem;
+    color: #eaf6f5;
+    font-weight: normal;
+    margin: 0 0 20px;
 }
-
-
-/* =========================
-   LOGIN PAGE
-========================= */
-
 
 .log-in {
-
-    width:min(90%,420px);
-
-    margin:
-    20px auto;
-
-    padding:25px;
-
-    background:#ffffff;
-
-    border-radius:20px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:15px;
-
-    box-shadow:
-    0 8px 20px rgba(0,0,0,.25);
+    width: min(90%, 420px);
+    margin: 0 auto 30px;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.12);
 }
-
 
 input,
 select {
-
-    width:90%;
-
-    padding:12px;
-
-    border-radius:10px;
-
-    border:
-    2px solid #ddd;
-
-    font-size:1rem;
-
+    width: 90%;
+    padding: 11px 14px;
+    border-radius: 8px;
+    border: 2px solid #dfe6e5;
+    font-size: 1rem;
+    font-family: inherit;
+    background: #f7fafa;
 }
 
-
-/* =========================
-   CHARACTER PICKER
-========================= */
-
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #6a63d1;
+}
 
 .character-picker {
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
-
-.character-picker img {
-
-    height:70px;
-
-    width:auto;
-
+.chars {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
+.chars img#playable {
+    height: 72px;
+    width: auto;
+    background: #f7fafa;
+    border-radius: 10px;
+    padding: 6px;
+    border: 2px solid #dfe6e5;
+}
 
 .arrow {
-
-    cursor:pointer;
-
-    transition:.2s;
-
+    background: #eef0fb;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: transform .15s, background .15s;
 }
 
+.arrow img {
+    height: 16px;
+    width: auto;
+}
 
 .arrow:hover {
-
-    transform:scale(1.1);
-
+    background: #dcdff5;
+    transform: scale(1.08);
 }
 
+#dice {
+    position: relative;
+    cursor: pointer;
+}
 
+#dice img {
+    height: 30px;
+    width: auto;
+    opacity: 0.7;
+    transition: opacity .15s;
+}
 
-/* =========================
-   PLAY BUTTON
-========================= */
+#dice:hover img {
+    opacity: 1;
+}
 
+.modal {
+    display: none;
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2b2b2b;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    font-size: 0.85rem;
+    z-index: 5;
+}
+
+.modal::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #2b2b2b;
+}
+
+.modal-content p {
+    margin: 0;
+}
 
 .play {
-
-    margin-top:20px;
-
+    margin-top: 8px;
 }
-
 
 #play {
-
-    background:#7f7fd5;
-
-    color:white;
-
-    padding:15px 50px;
-
-    border-radius:30px;
-
-    cursor:pointer;
-
-    transition:.2s;
-
+    background: #ff5e5e;
+    color: white;
+    padding: 14px 55px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform .15s, background .15s;
+    font-size: 1.4rem;
+    box-shadow: 0 4px 0 #d94848;
 }
-
 
 #play:hover {
-
-    transform:scale(1.05);
-
-    background:#6565c9;
-
+    transform: translateY(-2px);
+    background: #ff4747;
 }
 
-
-
-/* =========================
-   HOME PAGE CONTENT
-========================= */
-
+#play:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #d94848;
+}
 
 .bottom {
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    justify-content:center;
-
-    gap:20px;
-
-    padding:30px;
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 30px 40px;
 }
-
 
 .desc {
-
-    background:white;
-
-    width:min(300px,90%);
-
-    padding:20px;
-
-    border-radius:15px;
-
-    box-shadow:
-    0 5px 15px rgba(0,0,0,.2);
-
+    background: white;
+    width: min(300px, 90%);
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.12);
 }
-
 
 .desc h2 {
+    font-size: 1.2rem;
+    text-align: left;
+    color: #2b2b2b;
+    font-weight: bold;
+    margin: 0 0 10px;
+}
 
-    font-size:1.5rem;
-
+.desc p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #555;
 }
 
 
 /* =========================
-   GAME PAGE
+   GAME PAGE — matches reference screenshot
 ========================= */
 
+/* -------- TOP BAR -------- */
 
-.header {
-
-    list-style:none;
-
-    margin:0;
-
-    padding:20px;
-
-    display:flex;
-
-    justify-content:space-around;
-
-    align-items:center;
-
-    flex-wrap:wrap;
-
-    background:white;
-
+.top-bar {
+    background: white;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
 }
 
+.timer,
+.round {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: #444;
+}
 
 .timer img {
-
-    height:35px;
-
+    height: 20px;
+    width: 20px;
 }
 
+.timer span,
+.round span {
+    font-weight: bold;
+    color: #2b2b2b;
+}
+
+.round {
+    font-size: 0.85rem;
+}
+
+.word {
+    text-align: right;
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #333;
+}
+
+.word #wordDash {
+    display: block;
+    font-size: 0.85rem;
+    letter-spacing: 6px;
+    font-weight: normal;
+    margin-top: 4px;
+}
+
+/* -------- BODY LAYOUT -------- */
+
+.game-body {
+    position: relative;
+    min-height: 560px;
+    padding: 30px 40px;
+}
+
+/* -------- LEADERBOARD -------- */
 
 .leaderboard {
-
-    list-style:none;
-
-    background:white;
-
-    width:200px;
-
-    margin:20px;
-
-    padding:15px;
-
-    border-radius:15px;
-
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    width: 100px;
+    background: white;
+    border-radius: 8px;
+    padding: 14px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
-
-
-/* =========================
-   DRAWING AREA
-========================= */
-
-
-.playableModal {
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:flex-start;
-
-    gap:20px;
-
-    padding:20px;
-
+.player {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+    color: #333;
 }
 
-
-.drawTools {
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:10px;
-
-    background:#202020;
-
-    color:white;
-
-    padding:15px;
-
-    border-radius:15px;
-
-    width:150px;
-
+.player:last-child {
+    margin-bottom: 0;
 }
 
-
-.drawTools input {
-
-    width:100%;
-
+.player .rank {
+    font-weight: bold;
+    color: #6a63d1;
 }
 
-
-button {
-
-    cursor:pointer;
-
-    padding:10px;
-
-    border:none;
-
-    border-radius:10px;
-
+.player .name {
+    color: #333;
 }
 
-
-
-/* CANVAS */
-
-
-#canvas {
-
-    background:white;
-
-    border-radius:15px;
-
-    width:min(80vw,700px);
-
-    height:min(60vh,500px);
-
-    box-shadow:
-    0 8px 20px rgba(0,0,0,.3);
-
+.player .score {
+    display: none;
 }
 
+/* -------- CANVAS ROW -------- */
 
-
-/* =========================
-   CHAT
-========================= */
-
-
-.chat {
-
-    background:white;
-
-    width:min(90%,700px);
-
-    margin:
-    20px auto;
-
-    min-height:100px;
-
-    border-radius:15px;
-
-    padding:15px;
-
+.canvas-row {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 0;
+    max-width: 760px;
+    margin: 0 auto;
 }
 
+/* dark drawing tools panel, mimicking the near-black "Draw" toolbar
+   from the reference screenshot */
+.tools {
+    background: #1c1c28;
+    color: white;
+    width: 130px;
+    border-radius: 10px 0 0 10px;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
+.tools-title {
+    color: #5ad1e0;
+    font-size: 1.7rem;
+    font-weight: 800;
+    margin: 0 0 10px;
+    letter-spacing: -1px;
+}
 
-/* =========================
-   FOOTER
-========================= */
+.tools label {
+    font-size: 0.75rem;
+    color: #b8b8c8;
+    margin-top: 4px;
+}
 
+.tools input[type="color"] {
+    width: 100%;
+    height: 30px;
+    padding: 2px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.tools input[type="number"] {
+    width: 100%;
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: none;
+}
+
+#clear {
+    margin-top: 10px;
+    background: #d9d9d9;
+    color: #2b2b2b;
+}
+
+#clear:hover {
+    background: #c8c8c8;
+}
+
+canvas#drawing-board {
+    background: white;
+    display: block;
+    width: 630px;
+    height: 400px;
+    border-radius: 0 10px 10px 0;
+    cursor: crosshair;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* -------- AI GUESS BOX -------- */
+
+.guess-row {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 40px 30px;
+}
+
+.ai-guess {
+    background: white;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.9rem;
+    color: #888;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+/* -------- FOOTER -------- */
 
 footer {
-
-    background:white;
-
-    text-align:center;
-
-    padding:15px;
-
-    margin-top:30px;
-
+    background: white;
+    text-align: center;
+    padding: 16px;
 }
 
+footer p {
+    margin: 4px 0;
+    font-size: 0.85rem;
+    color: #555;
+}
 
 
 /* =========================
    MOBILE
 ========================= */
 
+@media (max-width: 800px) {
 
-@media(max-width:700px){
-
-
-    h1{
-        font-size:2rem;
+    .game-body {
+        padding: 20px;
+        min-height: auto;
     }
 
-
-    .playableModal{
-
-        flex-direction:column;
-
-        align-items:center;
-
+    .leaderboard {
+        position: static;
+        width: auto;
+        margin-bottom: 16px;
+        display: flex;
+        gap: 16px;
     }
 
-
-    .drawTools{
-
-        width:90%;
-
-        flex-direction:row;
-
-        justify-content:center;
-
-        flex-wrap:wrap;
-
+    .canvas-row {
+        flex-direction: column;
+        max-width: 100%;
     }
 
-
-    #canvas{
-
-        width:95vw;
-
-        height:50vh;
-
+    .tools {
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
     }
 
-
-    .header{
-
-        flex-direction:column;
-
-        gap:10px;
-
+    canvas#drawing-board {
+        width: 100%;
+        height: 300px;
+        border-radius: 0 0 10px 10px;
     }
 
+    .guess-row {
+        padding: 0 20px 20px;
+    }
 
+    .top-bar {
+        flex-direction: column;
+        height: auto;
+        gap: 8px;
+        padding: 16px;
+    }
+
+    .word {
+        text-align: center;
+    }
 }

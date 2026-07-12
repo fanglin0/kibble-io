@@ -3,70 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href="styles.css">
-    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
     <script src="script.js" defer></script>
-    <title>Kibble.io</title>
+    <title>kibble.io</title>
 </head>
 <body>
-    <a href = "index.html"><img src="assets/kibble.jpg" style="height:40px;"></a>
-    <ul class="header">
-        <div class="timer">
-            <li>
-                <img src="assets/timer.png">
-                <p id="time">time</p>
-            </li>
+
+<header class="top-bar">
+
+    <div class="timer">
+        <img src="assets/clock.png" alt="">
+        <span id="time">80</span>
+    </div>
+
+    <div class="round">
+        Round <span id="currentRound">1</span> of <span id="totalRound">3</span>
+    </div>
+
+    <div class="word">
+        GUESS THIS
+        <span id="wordDash">_ _ _ _ _ _ _ _</span>
+    </div>
+
+</header>
+
+<div class="game-body">
+
+    <aside class="leaderboard">
+        <div class="player">
+            <span class="rank">#1</span>
+            <span class="name">user1</span>
+            <span class="score">20</span>
         </div>
-        <div class="round">
-            <p>Round 
-                <span id="currentRound">Current Round</span>
-                of 
-                <span id ="totalRound">Total Round</span>
-            </p>
+        <div class="player">
+            <span class="rank">#2</span>
+            <span class="name">user2</span>
+            <span class="score">15</span>
         </div>
-        <div>
-            <p>GUESS THIS</p>
-            <span id="wordDash">Word Length</span>
-            <span id="wordLength"></span>
-        </div>
-    </ul>
-    <ul class="leaderboard">
-        <li>
-            <p>#1</p>
-            <p id="no1">user1</p>
-        </li>
-        <li>
-            <p>#2</p>
-            <p id="no2">user2</p>
-        </li>
-    </ul>
-    <div class="playableModal">
-        <p>Playable Modal</p>
-        <div class="drawTools">
-            <span id="choseColor"></span>
-            <h1>Draw</h1>
-            <label for="stroke">Stroke</label>
-            <input id="stroke" name="stroke" type="color">
-            <label for="lineWidth">Line Width</label>
-            <input id="lineWidth" name="lineWidth" type="number" value="5">
+    </aside>
+
+    <main class="canvas-row">
+
+        <div class="tools">
+            <h1 class="tools-title">Draw</h1>
+
+            <label>Stroke</label>
+            <input id="stroke" type="color" value="#000000">
+
+            <label>Line Width</label>
+            <input id="lineWidth" type="number" value="5" min="1" max="20">
+
             <button id="clear">Clear</button>
         </div>
-        <div class="canvas-container">
-            <canvas id="canvas"></canvas>
-        </div>
-    </div>
-    <div class="chat">
-        <span id="user">User</span>
-        <span id="guess">Guesses</span>
-    </div>
 
-    <footer>
-        <p>Kibble.io 2026</p>
-        <p>Come check out my <a href="https://github.com/fanglin0">Github</a></p>
-    </footer>
-    
-    
+        <canvas id="drawing-board" width="800" height="500"></canvas>
+
+    </main>
+
+</div>
+
+<div class="guess-row">
+    <div id="aiGuess" class="ai-guess">AI is watching...</div>
+</div>
+
+<footer>
+    <p>Kibble.io 2026</p>
+    <p>Come check out my <a href="https://github.com/fanglin0">Github</a></p>
+</footer>
+
 </body>
 </html>
-
-TESTESTESTESTESTESTESTESTESTE HELP
