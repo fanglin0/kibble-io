@@ -22,16 +22,32 @@ Make sure you have installed:
 - Python 3.10 (to run the ML model)
 - npm
 
-## Step 1L Clone the repo
+## Step 1: Clone the repo
 ```bash
 git clone https://github.com/fanglin0/kibble-io.git
 cd kibble-io
 code .
 ```
-It should open up the project folders in your IDE. Next, activate the 
 
+## Step 2: Set up Python enviroment
+It should open up the project folders in your IDE. Next, create a virtual enviroment by running the following commands in your terminal, while still in the kibble-io folder
+```python3 -m venv venv```
+and activate it 
+### Mac/Linux
+```source venv/bin/activate```
+### Windows
+```venv/Scripts/activate```
+and then install Python dependencies 
+```pip install -r requirements.txt```
 
+## Step 3: Install Node dependencies
+Install javascript dependencies by running 
+```npm install```
 
+## Step 4: Start the server
+Finally, run node sever by running:
+```node server.js```
+The app should be available at http:localhost:3000
 
 ## Why I made this project
 Practicing node and tensorflow while learning something new
