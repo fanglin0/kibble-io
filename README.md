@@ -1,15 +1,18 @@
 # Kibble.io
-##  What this project is
-Inpspired by the beloved : <a href="https://skribbl.io">Skribbl.io</a> I built a copycat website that resembled skribbl io but it's a play on dogs and kibble (ahaha get it). It's still a multiplayer drawing guessing game, through the multiplayer sever and canvas updates with Node.js. There's also an AI guesser with a tensorflow model trained off the <a href="https://console.cloud.google.com/storage/browser/quickdraw_dataset/full/numpy_bitmap;tab=objects?pli=1&prefix=&forceOnObjectsSortingFiltering=false"> Google Quick Draw API Data</a>. I took a small subsection of the dataset to train my model with prediction percentages. 
+## What this project is
 
-I spent ~12 hrs from node-and-express lapses to elarn node.js, and sued my knowledge to build onto a previously started yet never finished skribbl project to make it a more complete website.
+Inspired by the beloved <a href="https://skribbl.io">Skribbl.io</a>, I built a copycat website that resembles Skribbl.io, but with a play on dogs and kibble (ahaha, get it). It's still a multiplayer drawing guessing game, using a multiplayer server and canvas updates with Node.js. There's also an AI guesser with a TensorFlow model trained off the <a href="https://console.cloud.google.com/storage/browser/quickdraw_dataset/full/numpy_bitmap;tab=objects?pli=1&prefix=&forceOnObjectsSortingFiltering=false">Google Quick Draw API Data</a>. I took a small subsection of the dataset to train my model with prediction percentages.
 
-NOTE TO THE REVIEWERS: i want to apologize in advance to reviwers for my <a href="How I made this project">lapses</a>. THere are some parts that are me texting my friends, etc and not coding; I'm aware of them, but unable to cut them out with the new Lapse version (whcih removed cutting) nor unsync them from my project. I totally understand if you have to cut hours! I'm just trying to pay back my 19 hours of debt :')
+I spent ~12 hrs (from node-and-express lapses) to learn node.JS, and used my knowledge to build onto a previously started yet never finished website project (~6 hours on kibble.io) to make it a more complete website.
+
+**NOTE TO REVIEWERS:** I want to apologize in advance to reviewers for my lapses. There are some parts where I was texting my friends, etc., and not coding. I'm aware of them, but I am unable to cut them out with the new Lapse version (which removed cutting) or unsync them from my project. I totally understand if you have to cut hours! I'm just trying to pay back my 19 hours of debt :')
 
 <video src="public/assets/demo-video.mov">
+
 <img src="public/assets/demo1.png">
 <img src="public/assets/demo3.png">
 <img src="public/assets/demo2.png">
+
 ---
 
 ## How to run this
@@ -23,7 +26,8 @@ Make sure you have installed:
 - npm
 
 ## Step 1: Clone the repo
-```bash
+```
+bash
 git clone https://github.com/fanglin0/kibble-io.git
 cd kibble-io
 code .
@@ -31,23 +35,24 @@ code .
 
 ## Step 2: Set up Python enviroment
 It should open up the project folders in your IDE. Next, create a virtual enviroment by running the following commands in your terminal, while still in the kibble-io folder
-```python3 -m venv venv```
+`python3 -m venv venv`
 and activate it 
 ### Mac/Linux
-```source venv/bin/activate```
+`source venv/bin/activate`
 ### Windows
-```venv/Scripts/activate```
+`venv/Scripts/activate`
 and then install Python dependencies 
-```pip install -r requirements.txt```
+`pip install -r requirements.txt`
 
 ## Step 3: Install Node dependencies
 Install javascript dependencies by running 
-```npm install```
+`npm install`
 
 ## Step 4: Start the server
 Finally, run node sever by running:
-```node server.js```
-The app should be available at http:localhost:3000
+`node server.js`
+The app should be available at 
+`http:localhost:3000`
 
 ## Why I made this project
 Practicing node and tensorflow while learning something new
@@ -64,5 +69,5 @@ I had originally planned to import the entire quickdraw dataset, bbut qucikly re
 Theoretically this SHOULD be multiplayer and update dynamically as other players draw on the website canvas, but currently a large part of the website consists of placeholders. I would expand the multiplayer sever handling and try to introduce round mechanics in between players, and add a set array of word choices to draw from as I import my training datasets.
 I'm really bad at CSS styling so it was a challenge to try and get it to look the way I want to, and I had to consult <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.w3schools.com/cssref/index.php&ved=2ahUKEwjplPTE-MuVAxXJEFkFHVBINiMQFnoECBoQAQ&usg=AOvVaw3fflWIvatc74KTRxjKN5Cv">W3 documentation </a> often.
 
-##AI Declaration
+## AI Declaration
 ChatGPT and Claude was used to debug code when I got stuck.
