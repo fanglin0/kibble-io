@@ -2,6 +2,8 @@
 ##  What this project is
 Inpspired by the beloved : <a href="https://skribbl.io">Skribbl.io</a> I built a copycat website that resembled skribbl io but it's a play on dogs and kibble (ahaha get it). It's still a multiplayer drawing guessing game, through the multiplayer sever and canvas updates with Node.js. There's also an AI guesser with a tensorflow model trained off the <a href="https://console.cloud.google.com/storage/browser/quickdraw_dataset/full/numpy_bitmap;tab=objects?pli=1&prefix=&forceOnObjectsSortingFiltering=false"> Google Quick Draw API Data</a>. I took a small subsection of the dataset to train my model with prediction percentages. 
 
+I spent ~12 hrs from node-and-express lapses to elarn node.js, and sued my knowledge to build onto a previously started yet never finished skribbl project to make it a more complete website.
+
 NOTE TO THE REVIEWERS: i want to apologize in advance to reviwers for my <a href="How I made this project">lapses</a>. THere are some parts that are me texting my friends, etc and not coding; I'm aware of them, but unable to cut them out with the new Lapse version (whcih removed cutting) nor unsync them from my project. I totally understand if you have to cut hours! I'm just trying to pay back my 19 hours of debt :')
 
 <video src="public/assets/demo-video.mov">
@@ -11,10 +13,29 @@ NOTE TO THE REVIEWERS: i want to apologize in advance to reviwers for my <a href
 ---
 
 ## How to run this
+I'm not sure I can host the multiplayer server on any free providers, but it should theoretically work. I've attatched demo video below. To host locally...
+
+### Prerequisites
+
+Make sure you have installed:
+- Node.js
+- Python 3.10 (to run the ML model)
+- npm
+
+## Step 1L Clone the repo
+```bash
+git clone https://github.com/fanglin0/kibble-io.git
+cd kibble-io
+code .
+```
+It should open up the project folders in your IDE. Next, activate the 
+
+
+
 
 ## Why I made this project
 Practicing node and tensorflow while learning something new
-
+---
 ## How I made this project
 
 Node js tutorials to figure out how to dyanically update website and make multiplayer work (as seen by my <a href="What this project is">node-and-js time</a>)

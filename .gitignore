@@ -1,0 +1,15 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# ML datasets
+ai/data/*.npy
+ai/data
+
+# Mac
+.DS_Store
