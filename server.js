@@ -19,8 +19,7 @@ async function getWord(){
         "https://api.api-ninjas.com/v2/randomword",
         {
             headers:{
-                "X-Api-Key":
-                "jCKqq8AZmRTaocR3IXQEBtLnPtOe30GtBUw1uDfo"
+                "X-Api-Key": process.env.API_NINJAS_KEY
             }
         }
     );
@@ -46,9 +45,9 @@ io.on("connection", (socket)=> {
         );
         const python = 
         spawn(
-            "python",
+            "python3",
             [
-                "ai/predictor.py",
+                "ai/predict.py",
                 JSON.stringify(drawing)
             ]
         );
@@ -64,10 +63,11 @@ io.on("connection", (socket)=> {
     });
 });
 
+const PORT = process.env.PORT || 3000;
 server.listen(
-    300,
+    PORT,
     ()=>{
         console.log(
-            "server running http://localhost:3000"
+            `server running on port ${PORT}`
         );
     });

@@ -12,4 +12,5 @@ ai/data/*.npy
 ai/data
 
 # Mac
-.DS_Store.wakatime-project
+.DS_Store
+.wakatime-project

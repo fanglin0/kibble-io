@@ -1,0 +1,9 @@
+node_modules
+.venv
+ai-env
+ai/.venv
+ai/data
+.git
+.vscode
+.DS_Store
+.wakatime-project
